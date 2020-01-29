@@ -19,9 +19,11 @@ const {createICSAFile, readICSAFile, createEICSAFile, readEICSAFile} = require("
 let file = await createICSAFile("path/to/dir"); // => <Buffer ...> // Use createEICSAFile("path/to/file.icsa", "32 key length") for create encrypted icsa;
 
 // Read File
-let icsa = await readICSAFile("path/to/file.icsa"); // Use readEICSAFile("path/to/file.icsa", "32 key length") for encrypted icsa
+let icsa = await readICSAFile("path/to/file.icsa"); // Use readEICSAFile("path/to/file.icsa", "32 key length") for read encrypted icsa
 /*
  * icsa.file => ICSA File Buffer <Buffer ...>
+ * icsa.key => (only on readEICSAFile) the key you entered;
+ * icsa.decrypt => (only on readEICSAFile) the decrypted ICSA file Buffer <Buffer ...>
  * icsa.magic => Magic number "ICSA"
  * icsa.dir => all dirs and files:
  * {
