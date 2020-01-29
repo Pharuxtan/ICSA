@@ -13,13 +13,13 @@ npm install --save icsa
 ## Examples
 
 ```js
-const {createICSAFile, readICSAFile} = require("icsa");
+const {createICSAFile, readICSAFile, createEICSAFile, readEICSAFile} = require("icsa");
 
 // Create File
-let file = await createICSAFile("path/to/dir"); // => <Buffer ...>;
+let file = await createICSAFile("path/to/dir"); // => <Buffer ...> // Use createEICSAFile("path/to/file.icsa", "32 key length") for create encrypted icsa;
 
-// readFile
-let icsa = await readICSAFile("path/to/file.icsa");
+// Read File
+let icsa = await readICSAFile("path/to/file.icsa"); // Use readEICSAFile("path/to/file.icsa", "32 key length") for encrypted icsa
 /*
  * icsa.file => ICSA File Buffer <Buffer ...>
  * icsa.magic => Magic number "ICSA"
@@ -31,3 +31,4 @@ let icsa = await readICSAFile("path/to/file.icsa");
  * icsa.error => "null" if there has been no errors
  */
 ```
+ 
