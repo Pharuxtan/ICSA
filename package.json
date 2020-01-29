@@ -1,0 +1,29 @@
+{
+  "name": "icsa",
+  "version": "1.0.5",
+  "description": "ICSA is an archive file format based on brotli compression",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pharuxtan/ICSA.git"
+  },
+  "keywords": [
+    "compress",
+    "archive",
+    "file",
+    "icsa"
+  ],
+  "author": "Pharuxtan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pharuxtan/ICSA/issues"
+  },
+  "homepage": "https://github.com/Pharuxtan/ICSA#readme",
+  "dependencies": {
+    "compress-brotli": "^1.2.1",
+    "path": "^0.12.7"
+  }
+}
