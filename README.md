@@ -22,10 +22,10 @@ let file = await createICSAFile("path/to/dir"); // => <Buffer ...> // Use create
 let icsa = await readICSAFile("path/to/file.icsa"); // Use readEICSAFile("path/to/file.icsa", "32 key length") for read encrypted icsa
 /*
  * icsa.file => ICSA File Buffer <Buffer ...>
- * icsa.key => (only on readEICSAFile) the key you entered;
- * icsa.decrypt => (only on readEICSAFile) the decrypted ICSA file Buffer <Buffer ...>
+ * icsa.key => (only on readEICSAFile) The key you entered;
+ * icsa.decrypt => (only on readEICSAFile) the decrypted ICSA File Buffer <Buffer ...>
  * icsa.magic => Magic number "ICSA"
- * icsa.dir => all dirs and files:
+ * icsa.dir => All dirs and files:
  * {
  *   "/": {"file.ext": <Buffer ...>, ...},
  *   "/folder": {...}
