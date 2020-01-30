@@ -1,6 +1,6 @@
 {
   "name": "icsa",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "ICSA is an archive file format based on brotli compression",
   "main": "index.js",
   "scripts": {

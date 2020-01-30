@@ -18,6 +18,9 @@ const {createICSAFile, createEICSAFile, readICSAFile, readEICSAFile} = require("
 // Create File
 let file = await createICSAFile("path/to/dir"); // => <Buffer ...> // Use await createEICSAFile("path/to/file.icsa", "32 key length") for create encrypted icsa;
 
+// Write File
+let write = await writeICSAFile("path/to/dir"[, "path/to/file.icsa"]); // => 'file "path/to/file.icsa" created' // Use await writeEICSAFile("path/to/file.icsa", "32 key length"[, "path/to/file.icsa"]) for write encrypted icsa;
+
 // Read File
 let icsa = await readICSAFile("path/to/file.icsa"); // Use await readEICSAFile("path/to/file.icsa", "32 key length") for read encrypted icsa
 /*
@@ -33,4 +36,3 @@ let icsa = await readICSAFile("path/to/file.icsa"); // Use await readEICSAFile("
  * icsa.error => "null" if there has been no errors
  */
 ```
- 
