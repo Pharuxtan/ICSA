@@ -5,7 +5,7 @@ module.exports = async (dirpath, key) => {
     const path = require("path");
     const crypto = require('crypto');
     if(key.length !== 32) reject("Key length is not 32");
-    let buf = [];
+    let buf = Buffer.alloc(0);
     addString("ICSA");
     let dirs = getDirectories(dirpath);
     for(var f=0; f<dirs.length; f++){
@@ -45,16 +45,11 @@ module.exports = async (dirpath, key) => {
     cipher.end();
 
     function addString(str){
-      let temp = Array.from(str).map(n => n.charCodeAt());
-      for(var i=0; i<temp.length; i++){
-        buf.push(temp[i]);
-      }
+      buf = Buffer.concat([buf, Buffer.from(Array.from(str).map(n => n.charCodeAt()))]);
     }
 
     function addBuffer(buffer){
-      for(var i=0; i<buffer.length; i++){
-        buf.push(buffer[i]);
-      }
+      buf = Buffer.concat([buf, buffer]);
     }
 
     function getFiles(dir, files_) {
