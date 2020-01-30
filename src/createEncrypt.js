@@ -1,6 +1,6 @@
 module.exports = async (dirpath, key) => {
   return new Promise(async function(resolve, reject) {
-    const { compress } = require('compress-brotli')();
+    const { compress } = require('iltorb');
     const fs = require("fs");
     const path = require("path");
     const crypto = require('crypto');

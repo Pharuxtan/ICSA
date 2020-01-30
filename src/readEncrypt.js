@@ -1,5 +1,5 @@
 const BinaryReader = require("./lib/BinaryReader");
-const { decompress } = require('compress-brotli')();
+const { decompress } = require('iltorb');
 const fs = require("fs");
 const crypto = require("crypto");
 

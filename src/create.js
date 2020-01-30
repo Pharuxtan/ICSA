@@ -1,5 +1,5 @@
 module.exports = async (dirpath) => {
-  const { compress } = require('compress-brotli')();
+  const { compress } = require('iltorb');
   const fs = require("fs");
   const path = require("path");
   let buf = Buffer.alloc(0);
