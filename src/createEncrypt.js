@@ -41,7 +41,7 @@ module.exports = async (dirpath, key) => {
     cipher.on('end', () => {
       resolve(encrypted[0]);
     });
-    cipher.write(Buffer.from(buf).toString("hex"), "hex");
+    cipher.write(buf.toString("hex"), "hex");
     cipher.end();
 
     function addString(str){
