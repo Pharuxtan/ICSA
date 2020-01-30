@@ -11,8 +11,8 @@ class ICSA {
 
   async initialize(file) {
     try {
-      this.file = fs.readFileSync(file);
-      let reader = new BinaryReader(this.file);
+      let icsa = fs.readFileSync(file);
+      let reader = new BinaryReader(icsa);
       this.magic = reader.ReadAscii(4);
       if(this.magic !== "ICSA") return this.error = "Not an ICSA File";
       this.dir = {};
@@ -28,7 +28,7 @@ class ICSA {
           if(size == 0){
             this.dir[d][name] = Buffer.alloc(0);
           } else {
-            this.dir[d][name] = await decompress(this.file.slice(reader.position, reader.position + size));
+            this.dir[d][name] = await decompress(icsa.slice(reader.position, reader.position + size));
             reader.position += size;
           }
         } else {
