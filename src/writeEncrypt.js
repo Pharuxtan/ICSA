@@ -69,8 +69,6 @@ module.exports = async (dirpath, key, filepath) => {
 
   stream.end();
 
-  console.log(1);
-
   const cipher = crypto.createCipheriv('aes-256-cbc', key, Buffer.alloc(16, 0));
   let icsatmp = fs.createReadStream(filepath+".tmp");
   let icsa = fs.createWriteStream(filepath);
@@ -80,26 +78,4 @@ module.exports = async (dirpath, key, filepath) => {
   fs.unlinkSync(filepath+".tmp");
 
   return `file "${filepath}" created`;
-}
-
-async function encrypt(key, filepath){
-  return new Promise(function(resolve, reject) {
-    const cipher = crypto.createCipheriv('aes-256-cbc', key, Buffer.alloc(16, 0));
-    let icsatmp = fs.createReadStream(filepath+".tmp");
-    fs.writeFileSync(filepath, "", "utf8");
-    let icsa = fs.createWriteStream(filepath);
-    icsatmp.on("data", (data) => {
-      let encrypt = cipher.update(data);
-      console.log(encrypt);
-      if(encrypt){
-        icsa.write(encrypt);
-      }
-    });
-    icsatmp.on("finish", () => {
-      console.log("finish");
-      icsa.end();
-      cipher.end();
-      resolve();
-    });
-  });
 }

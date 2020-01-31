@@ -14,10 +14,12 @@ class ICSA {
     try {
       let icsa = fs.readFileSync(file);
       this.key = key;
-      let decrypt = await decrypt(icsa, this.key);
-      let reader = new BinaryReader(decrypt);
+      let decryptfile = await decrypt(icsa, this.key);
+      let reader = new BinaryReader(decryptfile);
       this.magic = reader.ReadAscii(4);
-      if(this.magic !== "ICSA") return this.error = "Not an ICSA File";
+      if(this.magic !== "ICSA"){
+        return this.error = "Not an ICSA File"
+      };
       this.dir = {};
       let d = "";
       while(true){
@@ -31,7 +33,7 @@ class ICSA {
           if(size == 0){
             this.dir[d][name] = Buffer.alloc(0);
           } else {
-            this.dir[d][name] = await decompress(decrypt.slice(reader.position, reader.position + size));
+            this.dir[d][name] = await decompress(decryptfile.slice(reader.position, reader.position + size));
             reader.position += size;
           }
         } else {

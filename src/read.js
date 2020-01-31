@@ -14,7 +14,9 @@ class ICSA {
       let icsa = fs.readFileSync(file);
       let reader = new BinaryReader(icsa);
       this.magic = reader.ReadAscii(4);
-      if(this.magic !== "ICSA") return this.error = "Not an ICSA File";
+      if(this.magic !== "ICSA"){
+        return this.error = "Not an ICSA File";
+      }
       this.dir = {};
       let d = "";
       while(true){
