@@ -1,8 +1,11 @@
 {
   "name": "icsa",
-  "version": "1.3.1",
+  "version": "1.4.1",
   "description": "ICSA is an archive file format based on brotli compression",
   "main": "index.js",
+  "bin": {
+    "icsa": "./src/icsa.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,6 +16,7 @@
   "keywords": [
     "compress",
     "archive",
+    "brotli",
     "file",
     "icsa"
   ],
@@ -23,7 +27,8 @@
   },
   "homepage": "https://github.com/Pharuxtan/ICSA#readme",
   "dependencies": {
-    "iltorb": "^2.4.4",
+    "commander": "^4.1.1",
+    "iltorb": "^2.4.5",
     "path": "^0.12.7"
   }
 }

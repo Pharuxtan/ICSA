@@ -55,7 +55,7 @@ class ICSA {
 
 async function decrypt(file, key){
   return new Promise(function(resolve, reject) {
-    const decipher = crypto.createDecipheriv('aes-256-cbc', key, Buffer.alloc(16, 0));
+    const decipher = crypto.createDecipheriv('aes-256-ecb', key, Buffer.alloc(0));
 
     let decrypted = [];
     decipher.on('readable', () => {

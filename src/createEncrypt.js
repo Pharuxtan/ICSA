@@ -29,7 +29,7 @@ module.exports = async (dirpath, key) => {
     }
     addString("E\0");
 
-    const cipher = crypto.createCipheriv('aes-256-cbc', key, Buffer.alloc(16, 0));
+    const cipher = crypto.createCipheriv('aes-256-ecb', key, Buffer.alloc(0));
 
     let encrypted = [];
     cipher.on('readable', () => {

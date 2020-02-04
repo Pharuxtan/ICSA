@@ -13,7 +13,7 @@ npm install --save icsa
 ## Examples
 
 ```js
-const {createICSAFile, createEICSAFile, writeICSAFile, writeEICSAFile, readICSAFile, readEICSAFile} = require("icsa");
+const {createICSAFile, createEICSAFile, writeICSAFile, writeEICSAFile, writeICSADir, readICSAFile, readEICSAFile} = require("icsa");
 
 // Create File
 let file = await createICSAFile("path/to/dir"); // => <Buffer ...> // Use await createEICSAFile("path/to/file.icsa", "32 key length") for create encrypted icsa;
@@ -23,6 +23,9 @@ let write = await writeICSAFile("path/to/dir"[, "path/to/file.icsa"]); // => 'fi
 
 // Read File
 let icsa = await readICSAFile("path/to/file.icsa"); // Use await readEICSAFile("path/to/file.icsa", "32 key length") for read encrypted icsa
+
+//Write Dir
+let dir = await writeICSADir(/* ICSA class (see readICSAFile) */, outputdir)
 /*
  * icsa.key => (only on readEICSAFile) The key you entered;
  * icsa.magic => Magic number "ICSA"
