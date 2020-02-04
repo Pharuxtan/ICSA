@@ -25,7 +25,8 @@ let write = await writeICSAFile("path/to/dir"[, "path/to/file.icsa"]); // => 'fi
 let icsa = await readICSAFile("path/to/file.icsa"); // Use await readEICSAFile("path/to/file.icsa", "32 key length") for read encrypted icsa
 
 //Write Dir
-let dir = await writeICSADir(/* ICSA class (see readICSAFile) */, outputdir)
+let dir = await writeICSADir(/* ICSA class (see readICSAFile) */, "path/to/dir"); // => 'dir "path/to/dir" created'
+
 /*
  * icsa.key => (only on readEICSAFile) The key you entered;
  * icsa.magic => Magic number "ICSA"
